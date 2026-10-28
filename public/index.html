@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ElFoxo — демоверсия сайта</title>
+  <meta name="description" content="Демонстрационная версия сайта детских головных уборов и аксессуаров ElFoxo. Изображения и товары — демонстрационные.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#F7F2EA">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#catalog">Перейти к каталогу</a>
+
+  <div class="demo-bar" id="demoBar" role="note">
+    <p><strong>Демоверсия.</strong> Товары, цены и изображения — демонстрационные иллюстрации, а не фотографии и ассортимент ElFoxo. Оплата отключена, данные не собираются.</p>
+    <button class="demo-bar__close" type="button" aria-label="Скрыть уведомление" data-action="close-demo">×</button>
+  </div>
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="logo" href="#top" aria-label="ElFoxo — на главную">
+        <svg class="logo__mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 5l7 6h10l7-6-1 12-11 11L5 17z" fill="currentColor"/><circle cx="12" cy="17" r="1.6" fill="var(--milk)"/><circle cx="20" cy="17" r="1.6" fill="var(--milk)"/><path d="M14.5 22h3L16 24z" fill="var(--milk)"/></svg>
+        <span>El<em>Foxo</em></span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Основная навигация">
+        <a href="#categories">Категории</a>
+        <a href="#catalog">Каталог</a>
+        <a href="#collection">Новая коллекция</a>
+        <a href="#about">О бренде</a>
+        <a href="#order">Доставка и заказ</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="icon-btn" type="button" data-action="show-favorites" aria-label="Избранное">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
+          <span class="badge-count" id="favCount" hidden>0</span>
+        </button>
+        <button class="icon-btn" type="button" data-action="open-cart" aria-label="Корзина">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8z"/><path d="M9 8V7a3 3 0 0 1 6 0v1"/></svg>
+          <span class="badge-count" id="cartCount" hidden>0</span>
+        </button>
+        <button class="icon-btn burger" type="button" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- 2. Главный экран -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__text reveal">
+          <p class="eyebrow">Детские головные уборы и аксессуары</p>
+          <h1>Тёплые шапки <em>для&nbsp;больших</em> прогулок</h1>
+          <p class="lead">Мягкие шапки, шлемы, панамы и аксессуары в спокойных природных оттенках — чтобы ребёнку было уютно, а образ собирался сам.</p>
+          <div class="hero__cta">
+            <a class="btn btn--dark" href="#catalog">Смотреть коллекцию</a>
+            <a class="btn btn--ghost" href="#about">О бренде</a>
+          </div>
+          <ul class="hero__tags" aria-label="Категории">
+            <li>Шапки</li><li>Шлемы</li><li>Панамы</li><li>Снуды</li><li>Аксессуары</li>
+          </ul>
+        </div>
+        <figure class="hero__media reveal">
+          <img src="assets/img/hero.svg" alt="Демо-иллюстрация: шапка-шлем с ушками, шапка «Лисёнок», варежки и клубки пряжи" width="1200" height="1400" fetchpriority="high">
+          <figcaption class="demo-chip">Демо-иллюстрация</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 3. Категории -->
+    <section class="section" id="categories">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow">Категории</p>
+          <h2>Что ищем сегодня?</h2>
+        </div>
+        <div class="cats" id="cats"></div>
+      </div>
+    </section>
+
+    <!-- 4. Каталог -->
+    <section class="section section--paper" id="catalog">
+      <div class="container">
+        <div class="section__head section__head--row reveal">
+          <div>
+            <p class="eyebrow">Каталог</p>
+            <h2>Демонстрационные товары</h2>
+          </div>
+          <label class="sort">
+            <span>Сортировка</span>
+            <select id="sort">
+              <option value="default">По умолчанию</option>
+              <option value="asc">Сначала дешевле</option>
+              <option value="desc">Сначала дороже</option>
+              <option value="name">По названию</option>
+            </select>
+          </label>
+        </div>
+        <div class="filters" id="filters" role="tablist" aria-label="Фильтр по категориям"></div>
+        <p class="catalog__info" id="catalogInfo" aria-live="polite"></p>
+        <div class="grid" id="grid"></div>
+        <p class="note">Цены, размеры и описания указаны для демонстрации и не являются предложением бренда.</p>
+      </div>
+    </section>
+
+    <!-- 5. Новая коллекция -->
+    <section class="section" id="collection">
+      <div class="container">
+        <div class="collection reveal">
+          <figure class="collection__media">
+            <img src="assets/img/collection.svg" alt="Демо-иллюстрация новой коллекции: снуд, шапка с помпоном и шапка-шлем" width="1400" height="1100" loading="lazy">
+            <figcaption class="demo-chip">Демо-иллюстрация</figcaption>
+          </figure>
+          <div class="collection__text">
+            <p class="eyebrow eyebrow--light">Новая коллекция · демо</p>
+            <h2>Осенняя прогулка</h2>
+            <p>Тёплые карамельные, горчичные и оливковые оттенки, фактурная вязка и вещи, которые легко сочетать между собой. Пример того, как может выглядеть блок сезонной коллекции.</p>
+            <button class="btn btn--light" type="button" data-action="show-collection">Смотреть новинки</button>
+          </div>
+        </div>
+        <div class="mini-grid" id="collectionGrid"></div>
+      </div>
+    </section>
+
+    <!-- 6. О бренде -->
+    <section class="section section--paper" id="about">
+      <div class="container about">
+        <figure class="about__media reveal">
+          <img src="assets/img/about.svg" alt="Демо-иллюстрация: детский чепчик, клубки пряжи и спицы" width="1000" height="1250" loading="lazy">
+          <figcaption class="demo-chip">Демо-иллюстрация</figcaption>
+        </figure>
+        <div class="about__text reveal">
+          <p class="eyebrow">О бренде</p>
+          <h2>Маленькая лиса, большая забота о&nbsp;тепле</h2>
+          <p>ElFoxo — бренд детских головных уборов и аксессуаров. В этой демоверсии раздел показывает, как может быть рассказана история бренда: спокойный тон, крупная фотография и несколько ясных мыслей.</p>
+          <p>Официальное описание, история и факты о производстве будут добавлены из материалов бренда — здесь мы намеренно не приводим данных, которые не можем подтвердить.</p>
+          <ul class="about__points">
+            <li><span>01</span>Спокойная палитра, которая легко сочетается с верхней одеждой</li>
+            <li><span>02</span>Модели для разных сезонов — от панам до шлемов</li>
+            <li><span>03</span>Комплекты, подобранные по цвету</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Преимущества и условия -->
+    <section class="section" id="order">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow">Почему удобно</p>
+          <h2>Преимущества и условия заказа</h2>
+        </div>
+        <div class="features">
+          <article class="feature reveal">
+            <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 26c0-8 5-15 12-15s12 7 12 15"/><path d="M6 26h28v4H6z"/><circle cx="20" cy="8" r="3"/></svg>
+            <h3>Мягкие фактуры</h3>
+            <p>Вязаные и хлопковые модели для разной погоды.</p>
+          </article>
+          <article class="feature reveal">
+            <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 20h28M10 15v10M16 17v6M22 15v10M28 17v6"/></svg>
+            <h3>Подбор размера</h3>
+            <p>Помощник ниже подскажет размер по обхвату головы.</p>
+          </article>
+          <article class="feature reveal">
+            <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 14l12-6 12 6v12l-12 6-12-6z"/><path d="M8 14l12 6 12-6M20 20v12"/></svg>
+            <h3>Аккуратная упаковка</h3>
+            <p>Пример блока о том, как бренд упаковывает заказы.</p>
+          </article>
+          <article class="feature reveal">
+            <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M10 12h20v14H18l-6 5v-5h-2z"/><path d="M15 18h10M15 22h6"/></svg>
+            <h3>Помощь с выбором</h3>
+            <p>Каналы связи будут указаны по данным бренда.</p>
+          </article>
+        </div>
+
+        <div class="order">
+          <div class="order__steps reveal">
+            <h3>Как оформить заказ</h3>
+            <ol>
+              <li><b>Выберите модель</b>Откройте карточку товара, выберите цвет и размер.</li>
+              <li><b>Добавьте в корзину</b>Корзина сохранится в этом браузере.</li>
+              <li><b>Оформите заказ</b>В демоверсии оформление и оплата отключены.</li>
+            </ol>
+            <div class="order__terms">
+              <p><b>Доставка и оплата.</b> Способы, сроки и стоимость доставки будут указаны по официальным условиям бренда. В демоверсии они намеренно не приводятся.</p>
+            </div>
+          </div>
+
+          <form class="sizer reveal" id="sizer" novalidate>
+            <h3>Подобрать размер</h3>
+            <p>Измерьте обхват головы сантиметровой лентой по линии лба и над ушами.</p>
+            <label for="headSize">Обхват головы, см</label>
+            <div class="sizer__row">
+              <input id="headSize" type="number" inputmode="numeric" min="34" max="60" placeholder="Например, 50">
+              <button class="btn btn--dark" type="submit">Подобрать</button>
+            </div>
+            <p class="sizer__result" id="sizerResult" aria-live="polite">Размерная сетка демонстрационная.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 8. Подвал -->
+  <footer class="footer" id="contacts">
+    <div class="container footer__grid">
+      <div>
+        <a class="logo logo--light" href="#top">
+          <svg class="logo__mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 5l7 6h10l7-6-1 12-11 11L5 17z" fill="currentColor"/></svg>
+          <span>El<em>Foxo</em></span>
+        </a>
+        <p class="footer__about">Демонстрационная версия сайта детских головных уборов и аксессуаров.</p>
+      </div>
+      <nav aria-label="Навигация в подвале">
+        <h4>Магазин</h4>
+        <a href="#categories">Категории</a>
+        <a href="#catalog">Каталог</a>
+        <a href="#collection">Новая коллекция</a>
+      </nav>
+      <nav aria-label="Информация">
+        <h4>Информация</h4>
+        <a href="#about">О бренде</a>
+        <a href="#order">Доставка и заказ</a>
+        <a href="#sizer">Подбор размера</a>
+      </nav>
+      <div>
+        <h4>Контакты</h4>
+        <p>Официальные контакты бренда будут добавлены после согласования. Сейчас их можно найти на сайте <a href="https://www.elfoxo.ru/" target="_blank" rel="noopener">elfoxo.ru</a>.</p>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>© <span id="year">2026</span> ElFoxo · демоверсия</p>
+      <p>Все изображения — демонстрационные иллюстрации, созданные для макета, и не являются фотографиями товаров бренда.</p>
+    </div>
+  </footer>
+
+  <!-- Карточка товара -->
+  <div class="modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="pmTitle" hidden>
+    <div class="modal__backdrop" data-action="close-modal"></div>
+    <div class="modal__panel modal__panel--product">
+      <button class="modal__close" type="button" data-action="close-modal" aria-label="Закрыть">×</button>
+      <div class="pm" id="pm"></div>
+    </div>
+  </div>
+
+  <!-- Сообщение -->
+  <div class="modal" id="infoModal" role="dialog" aria-modal="true" aria-labelledby="imTitle" hidden>
+    <div class="modal__backdrop" data-action="close-modal"></div>
+    <div class="modal__panel modal__panel--small">
+      <button class="modal__close" type="button" data-action="close-modal" aria-label="Закрыть">×</button>
+      <h3 id="imTitle">Это демоверсия</h3>
+      <p id="imText"></p>
+      <button class="btn btn--dark" type="button" data-action="close-modal">Понятно</button>
+    </div>
+  </div>
+
+  <!-- Корзина -->
+  <aside class="drawer" id="cart" aria-label="Корзина" hidden>
+    <div class="drawer__backdrop" data-action="close-cart"></div>
+    <div class="drawer__panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+      <div class="drawer__head">
+        <h3 id="cartTitle">Корзина</h3>
+        <button class="modal__close" type="button" data-action="close-cart" aria-label="Закрыть корзину">×</button>
+      </div>
+      <div class="drawer__body" id="cartBody"></div>
+      <div class="drawer__foot" id="cartFoot">
+        <div class="drawer__total"><span>Итого</span><b id="cartTotal">0 ₽</b></div>
+        <button class="btn btn--dark btn--block" type="button" data-action="checkout">Оформить заказ</button>
+        <p class="note">Демо: оплата не подключена, данные не отправляются.</p>
+      </div>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

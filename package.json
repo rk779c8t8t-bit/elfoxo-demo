@@ -1,0 +1,14 @@
+{
+  "name": "elfoxo-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Демонстрационный сайт ElFoxo: статический HTML/CSS/JS, без сборки",
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/serve.mjs 8080",
+    "images": "node scripts/generate-images.mjs",
+    "pages:dev": "npx wrangler pages dev public",
+    "pages:deploy": "npx wrangler pages deploy public --project-name elfoxo-demo"
+  },
+  "engines": { "node": ">=18" }
+}
